@@ -8,10 +8,14 @@
 </head>
 <body>
     <a href="{% url 'main_app:buy_car' %}">خرید خودرو</a><br>
+
+{% if user.is_author %}
     <form method="POST" action="{% url 'main_app:delete_person' %}"><br>
         {% csrf_token %}
             <input name="delete_id_box" type="text" placeholder="enter id to delete person">
             <input type="submit" value="delete" style="color: rgb(236, 118, 118);">
     </form>
+{% endif %}
+
 </body>
 </html>
